@@ -1,0 +1,21 @@
+	#tsjnotice {
+      padding: 0 0 0 0;
+	}
+	#tsjnotice ul {
+      list-style: none;
+	}
+	#tsjnotice li {
+		color: black;
+	}
+	#tsjnotice li.level0:before {
+		color: red;
+ 		content: "■ ";
+	}
+	#tsjnotice li.level1:before {
+		color: GoldenRod;
+ 		content: "■ ";
+	}
+	#tsjnotice li.level2:before {
+		color: black;
+ 		content: "■ ";
+	}

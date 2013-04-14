@@ -1,0 +1,16 @@
+<?php
+	defined('_JEXEC') or die('Restricted access');
+
+	echo "<ul class='mod_mvc'>";
+	
+		foreach ($list as $item){
+			 echo '<li>';
+			 if (!empty($item->image)) : 
+					echo $item->image;
+			 endif; 
+			 echo "<p>".$item->introtext."</p>"; 
+			 echo "<a href='".$item->link."'>qqq</a>";
+			 echo '</li>';
+		}
+	echo "</ul>";
+?>
