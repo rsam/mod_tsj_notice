@@ -18,6 +18,8 @@ $link = JURI::root().'modules/mod_tsj_notice/tmpl/css/style.css';
 $document->addHeadLink(JRoute::_($link), 'stylesheet', 'rel', $attribs);
  
 $waterdata = TSJ_Notice::getWaterCounterData();
+$gazdata = TSJ_Notice::getGazCounterData();
+$electrodata = TSJ_Notice::getElectroCounterData();
  
 $linknames = $params->get('linknames', 0);
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));

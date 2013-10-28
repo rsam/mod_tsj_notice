@@ -57,6 +57,55 @@ defined('_JEXEC') or die;
 			}
 		}
 	}
+	
+	//Проверки для счетчиков газа
+	for($i = 1; $i <= $gazdata->wcounts; $i++){
+		$date_elements  = explode(".",$gazdata->{'date_in_pp'.$i});
+		$date_in_pp = mktime(0,0,0,$date_elements[0],$date_elements[1],$date_elements[2]);
+		$delta_pp = ($date_in_pp - $today) / (60*60*24);
+
+		//echo 'i='.$i.'pp='.$date_in_pp.'t='.$today.' d='.$delta_pp.'<br>';
+		for($j = 0; $j <= 3; $j++)
+		{
+			if($parametors[('gaz_notice_'.$dnotice[$j])] > 0){
+				if($delta_pp > 0){
+					if($delta_pp <= $parametors[('gaz_notice_'.$dnotice[$j])]){
+						echo '<li class="level'. $j .'">Окончание срока действия поверки счетчика газа SN='. $gazdata->{'ser_num_pp'.$i} .' дней: '. $delta_pp .'</li>';
+						break;
+					}
+				}
+				else{
+					echo '<li class="level0">Cрок действия поверки счетчика газа SN='. $gazdata->{'ser_num_pp'.$i} .' истек</li>';
+					break;
+				}
+			}
+		}
+	}
+	
+	//Проверки для счетчиков электроэнергии
+	for($i = 1; $i <= $electrodata->wcounts; $i++){
+		$date_elements  = explode(".",$electrodata->{'date_in_pp'.$i});
+		$date_in_pp = mktime(0,0,0,$date_elements[0],$date_elements[1],$date_elements[2]);
+		$delta_pp = ($date_in_pp - $today) / (60*60*24);
+
+		//echo 'i='.$i.'pp='.$date_in_pp.'t='.$today.' d='.$delta_pp.'<br>';
+		for($j = 0; $j <= 3; $j++)
+		{
+			if($parametors[('electro_notice_'.$dnotice[$j])] > 0){
+				if($delta_pp > 0){
+					if($delta_pp <= $parametors[('electro_notice_'.$dnotice[$j])]){
+						echo '<li class="level'. $j .'">Окончание срока действия поверки счетчика электроэнергии SN='. $electrodata->{'ser_num_pp'.$i} .' дней: '. $delta_pp .'</li>';
+						break;
+					}
+				}
+				else{
+					echo '<li class="level0">Cрок действия поверки счетчика электроэнергии SN='. $electrodata->{'ser_num_pp'.$i} .' истек</li>';
+					break;
+				}
+			}
+		}
+	}
+	
 	?>
 
 
