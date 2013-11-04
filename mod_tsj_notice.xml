@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<install type="module" version="2.5" client="site" method="upgrade">
+<extension type="module" version="2.5" client="site" method="upgrade">
    <name>tsj mod_tsj_notice</name>
    <creationDate>April 2013</creationDate>
    <author>Shibin Roman</author>
@@ -31,4 +31,4 @@
    <param name="count" type="text" default="10" label="Количество" description="Укажите желаемое количество выводимых материалов" />
    <param name="template" type="filelist" default="default.php" directory="/modules/mod_tsj_notice/tmpl" filter="\.php$" hide_none="1" hide_default="1" label="Шаблон" description="Выберите шаблон модуля" />
    </params>
-</install>
+</extension>
