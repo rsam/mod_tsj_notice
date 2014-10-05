@@ -9,10 +9,10 @@ class TSJ_Notice {
 	{
 		$params = array();
 
-		$db	=& JFactory::getDBO();
+		$db	= JFactory::getDBO();
 		
 		$db->setQuery( "SELECT cfg_value FROM #__tsj_cfg WHERE cfg_name = 'water_notice_first';" );
-		$row =& $db->loadResult();
+		$row = $db->loadResult();
 		// Проверка на ошибки
 		if (!$result = $db->query()) {
 			//echo $this->db->stderr();
@@ -21,7 +21,7 @@ class TSJ_Notice {
 		$params['water_notice_first'] = $row;
 		
 		$db->setQuery( "SELECT cfg_value FROM #__tsj_cfg WHERE cfg_name = 'water_notice_second';" );
-		$row =& $db->loadResult();
+		$row = $db->loadResult();
 		// Проверка на ошибки
 		if (!$result = $db->query()) {
 			//echo $this->db->stderr();
@@ -30,7 +30,7 @@ class TSJ_Notice {
 		$params['water_notice_second'] = $row;
 		
 		$db->setQuery( "SELECT cfg_value FROM #__tsj_cfg WHERE cfg_name = 'water_notice_third';" );
-		$row =& $db->loadResult();
+		$row = $db->loadResult();
 		// Проверка на ошибки
 		if (!$result = $db->query()) {
 			//echo $this->db->stderr();
@@ -39,7 +39,7 @@ class TSJ_Notice {
 		$params['water_notice_third'] = $row;
 		
 		$db->setQuery( "SELECT cfg_value FROM #__tsj_cfg WHERE cfg_name = 'gaz_notice_first';" );
-		$row =& $db->loadResult();
+		$row = $db->loadResult();
 		// Проверка на ошибки
 		if (!$result = $db->query()) {
 			//echo $this->db->stderr();
@@ -48,7 +48,7 @@ class TSJ_Notice {
 		$params['gaz_notice_first'] = $row;
 		
 		$db->setQuery( "SELECT cfg_value FROM #__tsj_cfg WHERE cfg_name = 'gaz_notice_second';" );
-		$row =& $db->loadResult();
+		$row = $db->loadResult();
 		// Проверка на ошибки
 		if (!$result = $db->query()) {
 			//echo $this->db->stderr();
@@ -57,7 +57,7 @@ class TSJ_Notice {
 		$params['gaz_notice_second'] = $row;
 		
 		$db->setQuery( "SELECT cfg_value FROM #__tsj_cfg WHERE cfg_name = 'gaz_notice_third';" );
-		$row =& $db->loadResult();
+		$row = $db->loadResult();
 		// Проверка на ошибки
 		if (!$result = $db->query()) {
 			//echo $this->db->stderr();
@@ -66,7 +66,7 @@ class TSJ_Notice {
 		$params['gaz_notice_third'] = $row;
 		
 		$db->setQuery( "SELECT cfg_value FROM #__tsj_cfg WHERE cfg_name = 'electro_notice_first';" );
-		$row =& $db->loadResult();
+		$row = $db->loadResult();
 		// Проверка на ошибки
 		if (!$result = $db->query()) {
 			//echo $this->db->stderr();
@@ -75,7 +75,7 @@ class TSJ_Notice {
 		$params['electro_notice_first'] = $row;
 		
 		$db->setQuery( "SELECT cfg_value FROM #__tsj_cfg WHERE cfg_name = 'electro_notice_second';" );
-		$row =& $db->loadResult();
+		$row = $db->loadResult();
 		// Проверка на ошибки
 		if (!$result = $db->query()) {
 			//echo $this->db->stderr();
@@ -84,7 +84,7 @@ class TSJ_Notice {
 		$params['electro_notice_second'] = $row;
 		
 		$db->setQuery( "SELECT cfg_value FROM #__tsj_cfg WHERE cfg_name = 'electro_notice_third';" );
-		$row =& $db->loadResult();
+		$row = $db->loadResult();
 		// Проверка на ошибки
 		if (!$result = $db->query()) {
 			//echo $this->db->stderr();
@@ -94,7 +94,7 @@ class TSJ_Notice {
 		
 		// Общие параметры
 		$db->setQuery( "SELECT cfg_value FROM #__tsj_cfg WHERE cfg_name = 'water_on';" );
-		$row =& $db->loadResult();
+		$row = $db->loadResult();
 		if (!$result = $db->query()) {
 			//echo $this->db->stderr();
 			return false;
@@ -102,7 +102,7 @@ class TSJ_Notice {
 		$params['water_on'] = $row;
 		
 		$db->setQuery( "SELECT cfg_value FROM #__tsj_cfg WHERE cfg_name = 'gaz_on';" );
-		$row =& $db->loadResult();
+		$row = $db->loadResult();
 		if (!$result = $db->query()) {
 			//echo $this->db->stderr();
 			return false;
@@ -110,7 +110,7 @@ class TSJ_Notice {
 		$params['gaz_on'] = $row;
 		
 		$db->setQuery( "SELECT cfg_value FROM #__tsj_cfg WHERE cfg_name = 'electro_on';" );
-		$row =& $db->loadResult();
+		$row = $db->loadResult();
 		if (!$result = $db->query()) {
 			//echo $this->db->stderr();
 			return false;
@@ -122,10 +122,10 @@ class TSJ_Notice {
 	
 	public function getWaterCounterData()
 	{
-		$db	=& JFactory::getDBO();
+		$db	= JFactory::getDBO();
 		
 		// Чтение user id из таблицы User
-		$user = &JFactory::getUser();
+		$user = JFactory::getUser();
 
 		$userid = $user->get('id');
 		if($userid == null) $userid = 0;
@@ -145,7 +145,7 @@ class TSJ_Notice {
 
 			// Выполнение запроса в базу данных и получения списка строк соответствующих запросу row
 			$db->setQuery( $sql );
-			$row =& $db->loadObject();
+			$row = $db->loadObject();
 			//print_r($row);
 			//$this->office_counter_id = $row->office_counter_id;
 			//echo $office_counter_id;
@@ -166,10 +166,10 @@ class TSJ_Notice {
 	
 	public function getGazCounterData()
 	{
-		$db	=& JFactory::getDBO();
+		$db	= JFactory::getDBO();
 		
 		// Чтение user id из таблицы User
-		$user = &JFactory::getUser();
+		$user = JFactory::getUser();
 
 		$userid = $user->get('id');
 		if($userid == null) $userid = 0;
@@ -186,7 +186,7 @@ class TSJ_Notice {
 
 			// Выполнение запроса в базу данных и получения списка строк соответствующих запросу row
 			$db->setQuery( $sql );
-			$row =& $db->loadObject();
+			$row = $db->loadObject();
 			//print_r($row);
 			//$this->office_counter_id = $row->office_counter_id;
 			//echo $office_counter_id;
@@ -207,10 +207,10 @@ class TSJ_Notice {
 	
 	public function getElectroCounterData()
 	{
-		$db	=& JFactory::getDBO();
+		$db	= JFactory::getDBO();
 		
 		// Чтение user id из таблицы User
-		$user = &JFactory::getUser();
+		$user = JFactory::getUser();
 
 		$userid = $user->get('id');
 		if($userid == null) $userid = 0;
@@ -227,7 +227,7 @@ class TSJ_Notice {
 
 			// Выполнение запроса в базу данных и получения списка строк соответствующих запросу row
 			$db->setQuery( $sql );
-			$row =& $db->loadObject();
+			$row = $db->loadObject();
 			//print_r($row);
 			//$this->office_counter_id = $row->office_counter_id;
 			//echo $office_counter_id;

@@ -12,7 +12,7 @@ $parametors = TSJ_Notice::getParams();
  
 //Подключаем CSS
 jimport('joomla.document.html.html');
-$document =&JFactory::getDocument();
+$document =JFactory::getDocument();
 $link = JURI::root().'modules/mod_tsj_notice/tmpl/css/style.css';
 //$attribs = array('type' => 'text/css');
 $document->addHeadLink(JRoute::_($link), 'stylesheet', 'rel', $attribs);
